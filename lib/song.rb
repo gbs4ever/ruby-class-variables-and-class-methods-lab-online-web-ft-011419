@@ -25,22 +25,18 @@ attr_accessor :name , :artist , :genre
    @@genres.uniq
  end
 
-   def self.genre_count
-     var = {}
-    @@genres.each do |genre|
-      #check if the key value pair is there if so incremnt by one if not just add once
-      if    var[genre]
-        var[genre] +=1
-        else
-        var[genre]= 1
-      end
-    end
-    var
-   end
+ def self.genre_count
+  genre_count = {}
+  @@genres.each do |genre|
+    genre_count[genre] ||= 0
+    genre_count[genre] += 1
+  end
+  genre_count
+end
    def self.artist_count
      var = {}
   @@artists.each do |artist|
-      if  var[artist]
+      if  var[artist] 
         var[artist] += 1
       else
         var[artist] = 1
